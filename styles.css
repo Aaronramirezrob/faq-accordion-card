@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+/* #### Text */
+--Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+--Soft-red: hsl(14, 88%, 65%);
+
+/* #### Gradient (background) */
+--Soft-violet: hsl(273, 75%, 66%);
+--Soft-blue: hsl(240, 73%, 65%);
+
+/* #### Text */
+--Very-dark-grayish-blue: hsl(237, 12%, 33%);
+--Dark-grayish-blue: hsl(240, 6%, 50%);
+
+/* #### Dividers */
+--Light-grayish-blue: hsl(240, 5%, 91%);
+
+/* Font Family */
+--ff-kumbh: 'Kumbh Sans', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(var(--Soft-violet), var(--Soft-blue));
+    font-family: var(--ff-kumbh);
+    font-size: 12px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    height: 550px;
+    width: 910px;
+    border-radius: 15px;
+    background-image: url(images/bg-pattern-desktop.svg);
+    background-position: 1025% 75%; /* spot on the image  that is 1200% from left and 65% will be placed on top of the wrapper  */
+    background-repeat: no-repeat;
+    background-color: var(--Light-grayish-blue);
+    box-shadow: -4px 16px 8px -10px rgba(0,0,0,0.62);
+    -webkit-box-shadow: -4px 16px 8px -10px rgba(0,0,0,0.62);
+    -moz-box-shadow: -4px 16px 8px -10px rgba(0,0,0,0.62);
+
+}
+
+/* Left box */
+.img-wrapper {
+    position: relative;
+    height: 100%;
+    background: url(images/illustration-woman-online-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: 400% 35%;
+}
+
+.box-img {
+    position: absolute;
+    transform: translate(-50%, 118%);
+}
+
+/* Right Box */
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.text-wrapper {
+    height: 100%;
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.questions-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 70px;    
+}
+
+.question {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 15px;
+   cursor: pointer; 
+}
+
+.question h3 {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--Dark-grayish-blue);
+}
+
+.question-answer-wrapper h3:hover {
+    color: var(--Soft-red);
+}
+
+.question img {
+    align-self: center;
+    width: 10px;
+    height: 10px;
+}
+
+.question-answer-wrapper {
+    width: 350px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid hsl(240, 6%, 50%,0.2);
+}
+
+.answer {   
+    display: none;
+    overflow: hidden;
+}
+
+.active > .answer {
+    display: block;
+    padding-bottom: 1.3rem;
+    color: var(--darkGrayBlue);
+  }
+
+  .active .arrow-down {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 1rem;
+    }
+    .wrapper {
+        width: 400px;
+        height: 600px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px;
+        grid-gap: 0.5rem;
+        position: relative;
+    }
+
+    .img-wrapper {
+        background: url(images/bg-pattern-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: 40% 50%;
+    }
+
+    .inner-img {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-size: 70%;
+        background-position: center;
+        top: -100%;
+        left: 20%;
+        background: url(images/illustration-woman-online-mobile.svg);
+        background-repeat: no-repeat;
+    }
+
+    .box-img {
+        display: none;
+    }
+    
+    .text-wrapper {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .questions-wrapper {
+        margin-top: 55px;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .inner-img {
+        width: 200px;
+        top: -90%;
+        left: 21%;
+    }
+}
+
+@media(max-width: 375px) {
+    body {
+        height: 1000px;
+        margin-top: 0;
+    }
+    .wrapper {
+        display: grid;
+        width: 350px;
+        height: auto;
+    }
+
+    .questions-wrapper {
+        margin-top: 10px;
+    }
+
+    .question-answer-wrapper {
+        padding: 5%;
+    }
+}
+
